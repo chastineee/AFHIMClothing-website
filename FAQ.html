@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clothing Order FAQ Search</title>
+
+    <link rel="stylesheet" href="css/style.css">
+      <link rel="shortcut icon" href="imG/3.jpg" type="img/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<style>
+  h1{
+        font-size: 35px;
+        font-family: deltaboard;
+    }
+       .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 20% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 700px;
+        height: 120px;
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    .modal-content p {
+        margin-bottom: 20px;
+    }
+
+    .modal-btn {
+        padding: 10px;
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        height: 50px;
+        width: 100px;
+        margin-right: 80px;
+    }
+    .modal-btn:hover {
+     background-color: maroon;
+    }
+    .modal-btn.cancel-btn {
+        background-color: #ccc;
+    }
+        .modal-btn.cancel-btn:hover {
+        background-color: darkgray;
+    }
+    footer{
+        align-content: center;
+        text-align: center;
+    }
+    .container i {
+            display: flex;
+            align-items: center; /* Align items vertically in the center */
+            justify-content: flex-start; /* Align items to the left */
+            margin-left: -5px; /* Add some left margin for spacing */
+        }
+
+        .container .bx-phone {
+            font-size: 5.8em; /* Adjust the size as needed */
+            margin-right: 30px; /* Add some right margin for spacing */
+             margin-left: 150px;
+        }
+#searchInput{
+    margin-left: 40%;
+    height: 40px;
+    width: 300px;
+    border-radius: 20px;
+    border: 1px solid gold ;
+}
+button{
+  height: 40px;
+  border-radius: 20px;
+  background-color: #808080;
+}
+p{
+  margin-left: 25%;
+  color:  white;
+  font-size: 20px;
+}
+.name{
+  font-size: 50px;
+}
+.find{
+  font-size: 20px;
+}
+</style>
+<header>
+        <nav>
+            <div id="logo-wrapper">
+                <img class="logo" src="./img/2.jpg" alt="logo"/>
+                <span>AFHIM CLOTHING</span>
+            </div>
+            <ul class="links">
+            <li><a  href="homepage.html"><i class='bx bxs-home'></i>Home</a></li>
+            <li><a href="product.html"><i class='bx bxs-package'></i>Product</a></li>
+            <li><a class="active" href="about.html"><i class='bx bxs-info-circle'></i>About</a></li>
+            <li><a href="contact.html"><i class='bx bxs-contact'></i>Contact</a></li>
+            <li><a href="FAQ.html">FAQ</a></li>
+            <li><a href="location.html"><i class='bx bx-current-location'></i>Location</a></li>
+            <li><a id="logoutBtn" href="#"><i class='bx bxs-log-out'></i>Logout</a></li>
+        </nav>
+    </header>
+<body>
+  <h1 class="name" align="center">Clothing Order FAQ Search</h1>
+  <div align="center" class="find">Find answers to your questions about ordering clothes online.</div><br>
+  <input type="text" id="searchInput" placeholder="Enter your question">
+  <button onclick="searchFAQ()">Search</button>
+  <br>
+  <div id="searchResults"></div>
+  <div id="content-wrapper"></div>
+    <footer>
+        <div class="left">
+        <p>&copy; Copyright 2024. Allright Reserved</p>
+        <div class="right">
+    </footer>
+   </section>
+   <div id="logoutModal" class="modal">
+    <div class="modal-content">
+        <p>Are you sure you want to logout?</p>
+        <button class="modal-btn" id="confirmLogoutBtn">Logout</button>
+        <button class="modal-btn cancel-btn" id="cancelLogoutBtn">Cancel</button>
+    </div>
+</div>
+
+  <script>
+  function searchFAQ() {
+    // Get the search term from the input field
+    const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+
+    // Sample FAQ data (replace with your actual data)
+    const faqData = [
+      { question: "What sizes do you offer?", answer: "We offer a wide range of sizes from XS to XXL. You can find our size chart on each product page." },
+      { question: "What is your return policy?", answer: "You can return unworn and unwashed items within 30 days of purchase for a full refund. See our return policy page for more details." },
+      { question: "How long does shipping take?", answer: "Shipping times vary depending on your location. Standard shipping typically takes 3-5 business days." },
+      { question: "How long does shipping take?", answer: "Shipping times vary depending on your location. Standard shipping typically takes 3-5 business days." },
+      { question: "What payment methods do you accept?", answer: "We accept various payment methods including credit card, debit card, and cash on delivery: cash on delivery." },
+      { question: "What is your order confirmation process?", answer: "After placing your order, you will receive a confirmation email with your order details." },
+      { question: "Can I cancel or modify my order?", answer: "We may be able to cancel or modify your order if it hasn't been processed yet. Please contact our customer service team as soon  as possible for assistance." },
+      { question: "Where do you ship to?", answer: "We ship within MIMAROPA, Philippines for now. We are working on expanding our reach in the future." },
+      { question: "How much does shipping cost?", answer: "Shipping costs are calculated based on your order total and delivery location. You can see the estimated shipping cost during checkout." },
+      { question: "How long does shipping take?", answer: "Shipping times may vary depending on your location. Generally, it takes within 3-5 business days for standard shipping." },
+      { question: "What is your return policy?", answer: "You can return unworn and unwashed items within 30 days: return period of purchase for a full refund. Please refer to our return policy page for more details." },
+      { question: "How can I exchange an item?", answer: "Currently, we don't offer direct exchanges. However, you can return your unwanted item and place a new order for the desired size or item." },
+      { question: "Who pays for return shipping?", answer: "This will depend on the reason for the return. In some cases, AFHIM Online Clothing Ordering may cover return shipping costs. Please see our return policy for details." },
+      { question: "How do I know what size to order?", answer: "We provide size charts on each product page to help you choose the best fit." },
+      { question: "What if an item I want is out of stock?", answer: "You can sign up for our email notifications to be alerted when the item is back in stock." },
+      { question: "Do your clothes come in different colors?", answer: "Our clothing selection varies. You can see the available colors for each item on the product page." },
+
+
+
+
+
+    ];
+
+    // Clear previous search results
+    document.getElementById("searchResults").innerHTML = "";
+
+    // Loop through FAQ data and find matches
+    for (const item of faqData) {
+      if (item.question.toLowerCase().includes(searchTerm)) {
+        // Create a result element for each match
+        const result = document.createElement("p");
+        result.innerHTML = `<b>Question:</b> ${item.question} <br> <b>Answer:</b> ${item.answer}`;
+        document.getElementById("searchResults").appendChild(result);
+        break; // Limit to one result for now (optional)
+      }
+    }
+
+    // Show a message if no match is found
+    if (document.getElementById("searchResults").innerHTML === "") {
+      const noResult = document.createElement("p");
+      noResult.innerText = "Sorry, no results found for your search.";
+      document.getElementById("searchResults").appendChild(noResult);
+    }
+  }
+    // Logout function
+    function logout() {
+        // Here you can add code to clear session data or perform other logout-related tasks
+        // For now, let's redirect to the login page
+        window.location.href = "login.html";
+    }
+
+    // Show modal when logout button is clicked
+    document.getElementById("logoutBtn").addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent default link behavior
+        document.getElementById("logoutModal").style.display = "block";
+    });
+
+    // Close modal and logout when confirm logout button is clicked
+    document.getElementById("confirmLogoutBtn").addEventListener("click", function(event) {
+        event.preventDefault();
+        logout();
+    });
+
+    // Close modal when cancel logout button is clicked
+    document.getElementById("cancelLogoutBtn").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.getElementById("logoutModal").style.display = "none";
+    });
+
+    // Close modal when clicking outside of modal
+    window.onclick = function(event) {
+        var modal = document.getElementById("logoutModal");
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+  </script>
+</body>
+</html>

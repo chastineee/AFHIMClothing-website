@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFHIM CLOTHING</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/3.jpg" type="img/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+</head>
+<style type="text/css">
+    
+  @media only screen and (max-width: 768px) {
+            .modal-content {
+                width: 90%;
+                height: auto;
+            }
+            img {
+                width: 100%;
+                height: auto;
+            }
+            .image-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .image-container img {
+                width: 100%;
+                max-width: 300px;
+                margin: 8px;
+            }
+        }
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 20% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 700px;
+        height: 120px;
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    .modal-content p {
+        margin-bottom: 20px;
+    }
+
+    .modal-btn {
+        padding: 10px;
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        height: 50px;
+        width: 100px;
+        margin-right: 80px;
+    }
+    .modal-btn:hover {
+     background-color: maroon;
+    }
+    .modal-btn.cancel-btn {
+        background-color: #ccc;
+    }
+        .modal-btn.cancel-btn:hover {
+        background-color: darkgray;
+    }
+    img{
+        padding: 8px;
+        width: 600px;
+        height: 600px;
+    }
+        .image-container img:nth-child(2),
+        .image-container img:nth-child(3) 
+        {
+            max-width: auto;
+            max-height: auto;
+        }
+        nav, div#logo wrapper{
+            display: flex;
+  justify-content: space-between;
+  align-items: center;
+        }
+</style>
+<body>
+   <section>
+     <header>
+        <nav>
+            <div id="logo-wrapper">
+                <img class="logo" src="img/2.jpg" alt="logo"/>
+                <span>AFHIM CLOTHING</span>
+            </div>
+            <ul class="links">
+
+                <li><a class="active" href="index.html"><i class='bx bxs-home'></i>Home</a></li>
+
+                <li><a href="T-shirts.html"><i class='bx bxs-package'></i>Product</a></li>
+                <li><a href="about.html"><i class='bx bxs-info-circle'></i>About</a></li>
+                <li><a href="contact.html"><i class='bx bxs-contact'></i>Contact</a></li>
+                <li><a href="location.html"><i class='bx bx-current-location' ></i>Location</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
+                <li><a id="logoutBtn" href="loginx.html"><i class='bx bxs-log-out'></i>Logout</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+     <div>
+        <br>
+        <br>
+        <br>   
+    <div class="image-container">
+        <img src="./images/ads1.jpg">
+        <img src="./images/ads3.jpg">
+        <img src="./images/ads5.jpg">
+    </div>
+        <br>
+        <br>
+        <li><a href="T-Shirts.html"><i class="fas fa-shopping-basket"></i> Shop now</a></li>
+        <li><a href="about.html">Learn more</a></li>
+    </div>
+
+    <div id="content-wrapper"></div> 
+    <h1 img src="img/5.jpg" alt="img/5.jpg" height="250px" width="250px"></h1> 
+   </section>
+</body>
+<footer>
+    <p>&copy; Copyright 2024. All Rights Reserved</p>
+</footer>
+
+<!-- Logout Modal -->
+<div id="logoutModal" class="modal">
+    <div class="modal-content">
+        <p>Are you sure you want to logout?</p>
+        <button class="modal-btn" id="confirmLogoutBtn">Logout</button>
+        <button class="modal-btn cancel-btn" id="cancelLogoutBtn">Cancel</button>
+    </div>
+</div>
+
+<script>
+    // Logout function
+    function logout() {
+        // Here you can add code to clear session data or perform other logout-related tasks
+        // For now, let's redirect to the login page
+        window.location.href = "index.html";
+    }
+
+    // Show modal when logout button is clicked
+    document.getElementById("logoutBtn").addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent default link behavior
+        document.getElementById("logoutModal").style.display = "block";
+    });
+
+    // Close modal and logout when confirm logout button is clicked
+    document.getElementById("confirmLogoutBtn").addEventListener("click", function(event) {
+        event.preventDefault();
+        logout();
+    });
+
+    // Close modal when cancel logout button is clicked
+    document.getElementById("cancelLogoutBtn").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.getElementById("logoutModal").style.display = "none";
+    });
+
+    // Close modal when clicking outside of modal
+    window.onclick = function(event) {
+        var modal = document.getElementById("logoutModal");
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</html>

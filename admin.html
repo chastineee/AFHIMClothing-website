@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            color: #666;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            padding: 10px;
+            border-radius: 3px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        #password-strength {
+            margin-top: 5px;
+            color: #666;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Admin Login</h2>
+        <form action="/admin/login" method="post" onsubmit="return validateForm()">
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <div id="password-strength"></div> <!-- Password strength indicator -->
+            <label for="verify_password">Verify Password:</label>
+            <input type="password" id="verify_password" placeholder="Verify Password" required>
+
+            <input type="submit" value="Login">
+
+
+        </form>
+        
+    </div>
+
+    <script>
+        function validateForm() {
+            var password = document.getElementById("password").value;
+            var verifyPassword = document.getElementById("verify_password").value;
+
+            if (password !== verifyPassword) {
+                alert("Passwords do not match");
+                return false;
+            }
+            var passwordStrength = checkPasswordStrength(password);
+            if (passwordStrength === "Weak") {
+                alert("Password is weak. Please choose a stronger password.");
+                return false;
+            }
+            window.location.href = "admindesktop.html";
+            return false;
+
+           
+           
+        }
+
+        function checkPasswordStrength(password) {
+            var strength = 0;
+
+            // Check length
+            if (password.length >= 8) {
+                strength += 1;
+            }
+
+            // Check for both uppercase and lowercase characters
+            if (/[a-z]/.test(password) && /[A-Z]/.test(password)) {
+                strength += 1;
+            }
+
+            // Check for at least one digit
+            if (/\d/.test(password)) {
+                strength += 1;
+            }
+
+            // Check for at least one special character
+            if (/[^A-Za-z0-9]/.test(password)) {
+                strength += 1;
+            }
+
+            // Assign strength level based on points
+            if (strength < 3) {
+                return "Weak";
+            } else if (strength < 4) {
+                return "Medium";
+            } else {
+                return "Strong";
+            }
+        }
+
+
+        // Function to update password strength indication
+        function updatePasswordStrength() {
+            var password = document.getElementById("password").value;
+            var strengthIndicator = document.getElementById("password-strength");
+
+
+            if (password.trim() === '') {
+                strengthIndicator.textContent = ''; // Clear strength indicator if password is empty
+            } else { 
+                var passwordStrength = checkPasswordStrength(password);
+                strengthIndicator.textContent = "Password strength: " + passwordStrength;
+
+            }
+
+        }
+     
+        // Event listener to update password strength indication on input change
+        document.getElementById("password").addEventListener("input", updatePasswordStrength);
+
+    </script>
+</body>
+</html>

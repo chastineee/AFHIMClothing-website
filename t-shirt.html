@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="img/3.jpg" type="img/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>T-Shirt</title>
+    <style>
+        h1 {
+            margin: 0;
+        }
+        label, input[type="color"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        body {
+            background: url('./images/background3.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; 
+        }
+
+        #pos-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;           
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #007BFF; 
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-left: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .size-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 5px;
+        }
+
+        .size-list-item {
+            display: inline-block;
+        }
+
+        .size-button {
+            padding: 5px 10px;
+            width: 40px;
+            background-color: #ddd;
+            color: #333;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.2s;
+        }
+
+        .size-button.selected {
+            background-color: #007BFF;
+            color: #fff;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .size-button:hover {
+            background-color: #999;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        img.product-image {
+            height: 90px;
+            width: 90px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-container {
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+        }
+
+        .payment-method {
+            margin-top: 20px;
+        }
+         #zoomedImage {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+        }
+        #zoomedImage img {
+            max-width: 90%;
+            max-height: 90%;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            margin: auto;
+        }
+         .view-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            padding: 5px 8px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1; /* Ensure the button is above the image */
+        }
+ #feedback-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.stars {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+.stars span {
+    color: gray;
+    cursor: pointer;
+    margin: 0 5px; /* Add margin between stars */
+}
+
+.stars span:hover,
+.stars span.active {
+    color: gold;
+}
+.user-info-container {
+            margin-top: 20px;
+        }
+
+        .user-info-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .user-info-container input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+         h1{
+    width: 1000px;
+    font-size: 50px;
+    color: white;
+}
+.logo{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right:400px ;
+    width: 60px;
+    height: 60px;
+}
+#pos-container{
+    background-color: #cccccc;
+}
+img.logo{
+    border-radius: 100Px;
+}
+header{
+    height: 100px;
+    background-color: black;
+    margin-bottom: 30px;
+}
+nav {
+            background-color: transparent;
+            text-align: center;
+            padding: 10px;
+            margin-left: 1300px;
+        }
+
+        nav a {
+         margin-top: 80px;
+         padding: 5px 20px;
+        border-radius: 5px;
+         transition: background ease-in-out 200ms;
+
+        }
+        nav a:hover{
+         background: gray;
+        }
+        .home{
+        background-color: black;
+        font-weight: bold;
+        width: 50px;
+        height: 30px;
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+    }
+    </style>
+</head>
+<header>
+        <div id="logo-wrapper">
+        <h1><img class="logo" src="img/2.jpg" alt="logo"/>AFHIM CLOTHING</h1>
+            </div>
+    </header>
+    <nav>
+        <a href="T-Shirts.html" class="home"><i class='bx bx-arrow-back'></i>Back</a>
+    </nav>
+<body>
+    <div id="pos-container">
+        <h2 align="center">T-Shirt </h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Size</th>
+                    <th>Color</th>
+                    <th>Add to Cart</th>
+                </tr>
+            </thead>
+            <tbody>
+                <div class="image-container">
+                    <img class="product-image" src="./images/2.jpg" alt="mama" onclick="toggleZoomImage(this.src)">
+                    <img class="product-image" src="./images/2.1.jpg" alt="mama" onclick="toggleZoomImage(this.src)">
+                    <img class="product-image" src="./images/2.2.jpg" alt="mama" onclick="toggleZoomImage(this.src)">
+                    <img class="product-image" src="./images/2.3.jpg" alt="mama" onclick="toggleZoomImage(this.src)">
+                    <img class="product-image" src="./images/2.4.jpg" alt="mama" onclick="toggleZoomImage(this.src)">
+                    <img class="product-image" src="./images/2.5.jpg" alt="mama" onclick="toggleZoomImage(this.src)">
+                    <img class="product-image" src="./images/2.6.jpg" alt="mama" onclick="toggleZoomImage(this.src)">
+                    <img class="product-image" src="./images/2.7.jpg" alt="mama" onclick="toggleZoomImage(this.src)">
+                    <img class="product-image" src="./images/2.8.jpg" alt="mama" onclick="toggleZoomImage(this.src)">
+                    <img class="product-image" src="./images/2.10.jpg" alt="mama" onclick="toggleZoomImage(this.src)">
+                    <tr>
+                        <td>Customize T-Shirt</td>
+                        <td>₱499.00</td>
+                        <td>
+                            <ul class="size-list">
+                                <li class="size-list-item"><button class="size-button" onclick="setSize('S')">S</button></li>
+                                <li class="size-list-item"><button class="size-button" onclick="setSize('M')">M</button></li>
+                                <li class="size-list-item"><button class="size-button" onclick="setSize('L')">L</button></li>
+                                <li class="size-list-item"><button class="size-button" onclick="setSize('XL')">XL</button></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <input type="color" id="colorInput" name="color">
+                        </td>
+                        <td>
+                            <button onclick="addItem(`Customize T-Shirt`, 499.00)">Add</button>
+                        </td>
+                    </tr>
+                </div>
+                 <div id="zoomedImage">
+        <img id="zoomedImg" src="" alt="Zoomed Image">
+    </div>
+    <div id="zoomedImage" onclick="toggleZoomImage()">
+        <img id="zoomedImg" src="" alt="Zoomed Image">
+    </div>
+            </tbody>
+        </table>
+
+        <h3>Cart</h3>
+         <div id="pos-container">
+        <!-- Your existing content -->
+        
+        <!-- User information section -->
+        <div class="user-info-container">
+            <h3>User Information</h3>
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+        
+            <label for="address">Address:</label>
+            <input type="text" id="address" placeholder="Enter your address" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" placeholder="Enter your phone number" required>
+            <button onclick="saveUserInfo()">Save</button>
+            </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Size</th>
+                    <th>Color</th>
+                    <th>Quantity</th>
+                    <th>Add</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody id="cart">
+                <!-- Cart items will be displayed here -->
+            </tbody>
+        </table>
+        <section><h3>Select Payment Method</h3>
+<form id="payment-form">
+    <input type="radio" id="cod" name="payment-method" value="cod" checked>
+    <label for="cod">Cash on Delivery (COD)</label><br>
+    <input type="radio" id="gcash" name="payment-method" value="gcash">
+    <label for="gcash">GCash</label><br>
+</form>
+</section>
+
+        <p>Total: <span id="total">0.00</span></p>
+        <div class="payment-method">
+            <button id="buyButton" onclick="buyItems()">Buy</button>
+        </div>
+               
+
+        <br>    
+        <br>    
+             <div class="active-sign"></div>
+  <div id="feedback-container">
+     <button class="close-button" onclick="toggleFeedback()">X</button>
+    <div class="stars" id="feedback-stars">
+        <span onclick="setFeedback(1)">★</span>
+        <span onclick="setFeedback(2)">★</span>
+        <span onclick="setFeedback(3)">★</span>
+        <span onclick="setFeedback(4)">★</span>
+        <span onclick="setFeedback(5)">★</span>
+        <p id="feedback">Feedback: <span id="feedback-text"></span></p>
+                <div class="message-section">
+    <label for="message">Message:</label>
+    <textarea id="message" placeholder="Enter your message here..."></textarea>
+</div>
+        <button onclick="submitFeedback()">Submit Feedback</button>
+    </div>
+    <div id="gcashPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;">
+    <!-- Move the button inside the container of the QR code -->
+    <button class="close-button" onclick="toggleGcashPopup()" style="position: absolute; top: 5px; right: 5px;">X</button>
+    <!-- QR code image or any content related to GCash payment guide -->
+    <img src="./images/qrcode.jpg" alt="GCash Payment Guide">
+</div>
+</div>
+
+    </div>
+
+    <script>
+        let cart = [];
+        let total = 0;
+        let selectedSize = '';
+
+        const buttons = document.querySelectorAll('.size-button');
+        const activeSign = document.querySelector('.active-sign');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                buttons.forEach(b => b.classList.remove('selected'));
+                button.classList.add('selected');
+                const rect = button.getBoundingClientRect();
+                activeSign.style.transform = `translate(${rect.left + rect.width / 2 - 5}px, ${rect.top - 5}px) scale(1)`;
+            });
+        });
+
+        function setSize(size) {
+            selectedSize = size;
+        }
+
+function addItem(item, price) {
+    if (!selectedSize) {
+        alert('Please select a size before adding to the cart.');
+        return;
+    }
+    
+    // Get the selected color from the color input
+    const selectedColor = document.getElementById('colorInput').value;
+
+    // Check if an item with the same color and size already exists in the cart
+    const existingItemIndex = cart.findIndex(cartItem => cartItem.color === selectedColor && cartItem.size === selectedSize);
+    if (existingItemIndex !== -1) {
+        // If the item already exists, update the quantity
+        cart[existingItemIndex].quantity++;
+    } else {
+        // Otherwise, add a new item to the cart
+        cart.push({ item, price, size: selectedSize, color: selectedColor, quantity: 1 });
+    }
+
+    total += price;
+    updateCart();
+
+    // Save the cart data to local storage
+    saveCartToLocalStorage();
+}
+        function removeItem(index) {
+            if (cart[index].quantity > 1) {
+                // If quantity is greater than 1, decrease it by 1
+                cart[index].quantity--;
+                total -= cart[index].price; // Decrease the total accordingly
+            } else {
+                // If quantity is 1, remove the item entirely from the cart
+                const removedItem = cart.splice(index, 1);
+                total -= removedItem[0].price; // Decrease the total accordingly
+            }
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartTable = document.getElementById('cart');
+            const totalSpan = document.getElementById('total');
+
+            while (cartTable.firstChild) {
+                cartTable.removeChild(cartTable.firstChild);
+            }
+
+            cart.forEach((item, index) => {
+                const row = cartTable.insertRow();
+                const cell1 = row.insertCell(0);
+                const cell2 = row.insertCell(1);
+                const cell3 = row.insertCell(2);
+                const cell4 = row.insertCell(3);
+                const cell5 = row.insertCell(4);
+                const cell6 = row.insertCell(5);
+                const cell7 = row.insertCell(6);
+                cell1.innerHTML = item.item;
+                cell2.innerHTML = '₱' + item.price.toFixed(2);
+                cell3.innerHTML = item.size;
+                cell4.innerHTML = item.color;
+                cell5.innerHTML = item.quantity;
+                cell6.innerHTML = `<button onclick="addItem('${item.item}', ${item.price})">+</button>`;
+                cell7.innerHTML = `<button onclick="removeItem(${index})">-</button>`;
+            });
+
+            totalSpan.textContent = '₱' + total.toFixed(2);
+        }
+       function getUserInformation() {
+    const name = document.getElementById('name').value;
+    const address = document.getElementById('address').value;
+    const phone = document.getElementById('phone').value;
+
+    // Validate the user information if needed
+
+    return { name, address, phone };
+}
+// Function to create and insert dynamic element displaying saved values
+function displaySavedValues(name, address, phone) {
+  // Create a dynamic element to display the saved values
+  const savedValuesDiv = document.createElement('div');
+  savedValuesDiv.id = 'savedValues';
+  savedValuesDiv.textContent = `Name: ${name}, Address: ${address}, Phone: ${phone}`;
+  savedValuesDiv.style.backgroundColor = '#808080'; // Yellow background color
+  savedValuesDiv.style.padding = '10px';
+  savedValuesDiv.style.marginBottom = '10px';
+  savedValuesDiv.style.borderRadius = '10px';
+
+  // Create a remove button
+  const removeButton = document.createElement('button');
+  removeButton.textContent = 'Remove';
+  removeButton.style.marginLeft = '10px'; // Add margin to separate button from text
+
+  // Add click event listener to the remove button
+  removeButton.addEventListener('click', function() {
+    // Remove the saved values from local storage
+    localStorage.removeItem('userInfo');
+    // Remove the dynamic element displaying saved values
+    savedValuesDiv.parentNode.removeChild(savedValuesDiv);
+    // Clear the input fields
+    document.getElementById('name').value = '';
+    document.getElementById('address').value = '';
+    document.getElementById('phone').value = '';
+    // Display a message indicating successful removal
+    alert('User information removed successfully!');
+  });
+
+  // Append the remove button to the dynamic element
+  savedValuesDiv.appendChild(removeButton);
+
+  // Insert the dynamic element above the "Name" label
+  const nameLabel = document.querySelector('label[for="name"]');
+  nameLabel.parentNode.insertBefore(savedValuesDiv, nameLabel);
+}
+
+
+// Function to save user information
+function saveUserInfo() {
+    const name = document.getElementById('name').value;
+    const address = document.getElementById('address').value;
+    const phone = document.getElementById('phone').value;
+
+    // Check if any of the required fields are empty
+    if (!name || !address || !phone) {
+        alert('Please fill in all required fields.');
+        return;
+    }
+
+    // Store the user information
+    localStorage.setItem('userInfo', `${name}, ${address}, ${phone}`);
+
+    // Display a popup message indicating successful save
+    alert('User information saved successfully!');
+
+    // Remove previous dynamic element displaying saved values
+    const previousSavedValuesDiv = document.getElementById('savedValues');
+    if (previousSavedValuesDiv) {
+        previousSavedValuesDiv.parentNode.removeChild(previousSavedValuesDiv);
+    }
+
+    // Display updated saved values
+    displaySavedValues(name, address, phone);
+}
+
+
+// Function to save order details to local storage
+function saveOrderToLocalStorage(order) {
+    // Retrieve existing orders from local storage
+    let orders = JSON.parse(localStorage.getItem('orders')) || [];
+    // Add the new order to the existing orders
+    orders.push(order);
+    // Save the updated orders back to local storage
+    localStorage.setItem('orders', JSON.stringify(orders));
+}
+
+function buyItems() {
+    const userInfo = getUserInformation();
+    const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+
+    if (!userInfo.name || !userInfo.address || !userInfo.phone) {
+        alert('Please fill in all required fields.');
+        return;
+    }
+
+    if (cart.length === 0) {
+        alert('Your cart is empty. Please add items before buying.');
+        return;
+    }
+
+    // Perform payment based on the selected method
+    switch (paymentMethod) {
+        case 'cod':
+            alert('Your order has been placed! Payment will be done via Cash on Delivery (COD).');
+            break;
+        case 'gcash':
+            alert('Your order has been placed! Payment will be done via GCash.');
+            // Show the QR code popup for GCash payment
+            document.getElementById('gcashPopup').style.display = 'block';
+            break;
+        default:
+            alert('Please select a valid payment method.');
+            return;
+    }
+
+    // Save the order details
+    const order = { userInfo, cart, total, paymentMethod };
+    saveOrderToLocalStorage(order);
+
+    // Clear the cart and update display
+    cart = [];
+    total = 0;
+    updateCart();
+
+    // After buying items, show the feedback pop-up
+    toggleFeedback();
+}
+
+
+
+ if (paymentMethod === 'gcash') {
+                document.getElementById('gcashPopup').style.display = 'block';
+            }
+         function zoomImage(src) {
+            const zoomedImg = document.getElementById('zoomedImg');
+            zoomedImg.src = src;
+            document.getElementById('zoomedImage').style.display = 'block';
+        }
+
+        // Close zoomed image when clicked outside
+        window.addEventListener('click', function(event) {
+            if (event.target == document.getElementById('zoomedImage')) {
+                document.getElementById('zoomedImage').style.display = 'none';
+            }
+        });
+         function toggleZoomImage(src) {
+            const zoomedImage = document.getElementById('zoomedImage');
+            const zoomedImg = document.getElementById('zoomedImg');
+            if (zoomedImage.style.display === 'block') {
+                // Close zoomed image if already open
+                zoomedImage.style.display = 'none';
+            } else {
+                // Open zoomed image if closed
+                zoomedImg.src = src;
+                zoomedImage.style.display = 'block';
+            }
+        }
+         function setFeedback(value) {
+        feedback = value;
+        updateFeedbackIndicator();
+    }
+
+    function updateFeedbackIndicator() {
+        const stars = document.querySelectorAll('#feedback-stars span');
+        const feedbackText = document.getElementById('feedback-text');
+        switch (feedback) {
+            case 1:
+                feedbackText.textContent = 'Very Unsatisfied';
+                break;
+            case 2:
+                feedbackText.textContent = 'Unsatisfied';
+                break;
+            case 3:
+                feedbackText.textContent = 'Neutral';
+                break;
+            case 4:
+                feedbackText.textContent = 'Satisfied';
+                break;
+            case 5:
+                feedbackText.textContent = 'Very Satisfied';
+                break;
+            default:
+                feedbackText.textContent = '';
+        }
+        stars.forEach((star, index) => {
+            if (index < feedback) {
+                star.classList.add('active');
+            } else {
+                star.classList.remove('active');
+            }
+        });
+    }
+     function submitFeedback() {
+            // Here you can add the logic to submit the feedback, such as sending it to a server or storing it locally.
+            alert('Feedback submitted! Thank you for your input.');
+            toggleFeedback();
+    // Clear user information fields
+    document.getElementById('name').value = '';
+    document.getElementById('address').value = '';
+    document.getElementById('phone').value = '';
+
+        }
+          function toggleFeedback() {
+    const feedbackContainer = document.getElementById('feedback-container');
+    feedbackContainer.style.display = feedbackContainer.style.display === 'block' ? 'none' : 'block';
+}   
+    // Function to toggle the display of GCash QR code popup
+    function toggleGcashPopup() {
+        const gcashPopup = document.getElementById('gcashPopup');
+        gcashPopup.style.display = gcashPopup.style.display === 'block' ? 'none' : 'block';
+    }
+    </script>
+</body>
+</html>

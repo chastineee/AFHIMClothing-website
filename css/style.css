@@ -1,0 +1,164 @@
+*{
+     margin: 0;
+     padding: 0;
+     outline: transparent;
+     text-decoration: wavy;
+}
+html,body {
+    height: 100%;
+    min-height: 100%;
+    font-family: arial;
+}
+ body{
+    background: url('../images/background3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+header{
+    padding: 25px 50px;
+}
+
+nav, div#logo-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+img.logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid ;
+}
+
+img.logo + span {
+    margin-left: 25px;
+    font-size: 40px;
+}
+li{
+    list-style: none;
+    display: inline-block;
+}
+a{
+    color: white;
+    display: block;
+    padding: 20px;
+    border-radius: 15px 20px;
+    transition: ease-in-out 200ms;
+    background: black;
+}
+img{
+    border-radius: 50px;
+    height:300px;
+}
+li a {
+    padding: 15px 20px;
+    border-radius: 10px;
+    transition: background ease-in-out 200ms;
+}
+li a:hover {
+    background: gray;
+}
+footer {
+    position: absolute;
+    color: white;
+    bottom: 0;
+}
+foot-links li {
+ margin-left: 10px;
+}
+foot-links a{
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+}
+foot-links a:hover{
+    border-color: yellow;
+}
+span{
+    font-family: Stencil;
+    color: orangered;
+}
+h1{
+    color: white;
+}
+h2{
+    padding: 10px;
+    font-size: 50px;
+    margin-left: 100px;
+    font-family: sans-serif;
+    color: white;
+}
+h3{
+    padding: 10px;
+    font-size: 50px;
+    margin-left: 200px;
+    font-family: sans-serif;
+    color: white;
+}
+div a{
+    color: white;
+    border-radius: 20px;
+    display: block;
+    background: orangered;
+    margin-left: 100px;
+    background: black;
+}
+ container {
+   max-width: 400px;
+   margin: 0 auto;
+   padding: 20px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   width: 100px;
+}
+container h2 {
+  text-align: center;
+ }
+form-group {
+  margin-bottom: 20px;
+}
+form-group label {
+    display: block;
+    margin-bottom: 5px;
+ }
+form-group input[type="text"], form-group textarea {
+     width: 100%;
+     padding: 8px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+ }
+form-group textarea {
+     height: 100px;
+  }
+form-group button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+ }
+form-group button:hover {
+   background-color: #0056b3;
+ }
+div input{
+    width: 300px;
+    height: 30px;
+    border-radius: 20px;
+}
+div textarea{
+    width: 300px;
+    height: 30px;
+   border-radius: 20px;
+}
+div label{
+    color:black;
+}
+div button{
+    width: 300px;
+    height:30px ;
+    border-radius: 20px;
+    color: black;
+    margin-left: 65px;
+}

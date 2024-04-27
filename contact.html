@@ -1,0 +1,427 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AFHIM CLOTHING</title>
+
+        <link rel="shortcut icon" href="imG/3.jpg" type="img/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <link rel="shortcut icon" href="imG/3.jpg" type="img/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </head>
+    <style type="text/css">
+        *{
+     margin: 0;
+     padding: 0;
+     outline: transparent;
+     text-decoration: wavy;
+}
+html,body {
+    height: 100%;
+    min-height: 100%;
+    font-family: arial;
+}
+ body{
+    background: url('./images/background3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+header{
+    padding: 25px 50px;
+}
+
+nav, div#logo-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+img.logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid ;
+}
+
+img.logo + span {
+    margin-left: 25px;
+    font-size: 40px;
+}
+li{
+    list-style: none;
+    display: inline-block;
+}
+a{
+    color: white;
+    padding: 20px;
+    border-radius: 15px 20px;
+    transition: ease-in-out 200ms;
+    background: black;
+}
+img{
+    border-radius: 50px;
+    height:300px;
+}
+li a {
+    padding: 15px 20px;
+    border-radius: 10px;
+    transition: background ease-in-out 200ms;
+}
+li a:hover {
+    background: gray;
+}
+footer {
+    position: absolute;
+    color: white;
+    bottom: 0;
+}
+foot-links li {
+ margin-left: 10px;
+}
+foot-links a{
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+}
+foot-links a:hover{
+    border-color: yellow;
+}
+span{
+    font-family: Stencil;
+    color: orangered;
+}
+h1{
+    color: white;
+}
+h2{
+    font-size: 50px;
+    margin-left: 150px;
+    font-family: sans-serif;
+    color: white;
+}
+h3{
+    font-size: 50px;
+    font-family: sans-serif;
+    color: white;
+}
+div a{
+    color: white;
+    border-radius: 20px;
+    display: block;
+    background: orangered;
+    margin-left: 100px;
+    background: black;
+}
+ container {
+   max-width: 400px;
+   margin: 0 auto;
+   padding: 20px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   width: 100px;
+}
+container h2 {
+  text-align: center;
+ }
+form-group {
+  margin-bottom: 20px;
+}
+form-group label {
+    display: block;
+    margin-bottom: 5px;
+ }
+form-group input[type="text"], form-group textarea {
+     width: 100%;
+     padding: 8px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+ }
+form-group textarea {
+     height: 100px;
+  }
+form-group button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+ }
+form-group button:hover {
+   background-color: #0056b3;
+ }
+div input{
+    width: 300px;
+    height: 30px;
+    border-radius: 20px;
+}
+div textarea{
+    width: 300px;
+    height: 30px;
+   border-radius: 20px;
+}
+div label{
+    color:black;
+}
+div button{
+    width: 300px;
+    height:30px ;
+    border-radius: 20px;
+    color: black;
+    margin-left: 65px;
+}
+           .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 20% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 700px;
+            height: 120px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .modal-content p {
+            margin-bottom: 20px;
+        }
+
+        .modal-btn {
+            padding: 10px;
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            height: 50px;
+            width: 100px;
+            margin-right: 80px;
+        }
+        .modal-btn:hover {
+         background-color: maroon;
+        }
+        .modal-btn.cancel-btn {
+            background-color: #ccc;
+        }
+            .modal-btn.cancel-btn:hover {
+            background-color: darkgray;
+        }
+.ig-link,
+.fb-link {
+    text-align: center;
+    color: white;
+}
+
+.ig-link a,
+.fb-link a {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+
+.contact-icon {
+    text-align: center;
+    margin-right: 30px;
+}
+
+.contact-icon label {
+    color: white;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.contact-icon a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+        nav, div#logo wrapper{
+            display: flex;
+  justify-content: space-between;
+  align-items: center;
+        }
+        footer {
+    position: fixed; /* Fixed position so it stays at the bottom */
+    color: white;
+    bottom: 0;
+    left: 0; /* Position at the left edge */
+    padding: 10px; /* Add some padding */
+}
+
+footer nav {
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+}
+
+footer nav a {
+    padding: 5px 10px; /* Adjust padding */
+    border-radius: 5px;
+    transition: background ease-in-out 200ms;
+}
+
+footer nav a:hover {
+    background: gray;
+}
+
+.home {
+    background-color: black;
+    font-weight: bold;
+    padding: 5px 10px; /* Adjust padding */
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-size: 16px; /* Adjust font size */
+}
+#icon{
+    display: flex;
+}
+.ph{
+    margin-left: 300px;
+    margin-right: 400px;
+}
+.fb{
+    margin-right: 298px;
+}
+.pho{
+    font-size:  3em;
+    color: white;
+    padding: 16px;
+    border-radius: 15px 20px;
+    transition: ease-in-out 200ms;
+    background: transparent ;
+}
+.fbook{
+    font-size:  3em;
+    color: white;
+    padding: 15px;
+    border-radius: 15px 20px;
+    transition: ease-in-out 200ms;
+    background: transparent ;
+}
+.insta{
+    font-size:  3em;
+    color: white;
+    padding: 15px;
+    border-radius: 15px 20px;
+    transition: ease-in-out 200ms;
+    background: transparent ;
+}
+
+    </style>
+    <body>
+         <header>
+            <nav>
+            <div id="logo-wrapper">
+                <img class="logo" src="img/2.jpg" alt="logo"/>
+                <span>AFHIM CLOTHING</span>
+            </div>
+            <ul class="links">
+                <li><a class="active" href="homepage.html"><i class='bx bxs-home'></i>Home</a></li>
+                <li><a href="T-shirts.html"><i class='bx bxs-package'></i>Product</a></li>
+                <li><a href="about.html"><i class='bx bxs-info-circle'></i>About</a></li>
+                <li><a href="location.html"><i class='bx bx-current-location'></i>Location</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
+                <li><a id="logoutBtn" href="loginx.html"><i class='bx bxs-log-out'></i>Logout</a></li>
+            </ul>
+        </nav>
+        </header>
+        <h2 align="center">Contact Us </h2>
+   <div class="container" id="icon" align="center">
+    <div class="contact-icon">
+        <div class="ph">
+            <div class="pho"><i class="fa-solid fa-phone"></i></div>
+            <br>
+            <label>Mobile Number:</label>
+            <br>  
+            <br>
+            <label>09555935805</label>
+        </div>
+    </div>
+    <div class="contact-icon">
+        <div class="fb">
+            <div class="fbook"><i class="fa-brands fa-facebook-f"></i></div>
+             <br>
+            <label>Facebook Account:</label>
+            <br>
+             <br>
+            <a href="https://www.facebook.com/afhimclothing/">AfhimClothing</a>
+        </div>
+    </div>
+    <div class="contact-icon">
+        <div class="ig">
+            <div class="insta"><i class="fa-brands fa-instagram"></i></div>
+            <br>
+            <label>Instagram Account:</label>
+            <br>
+             <br>
+            <a href="https://www.instagram.com/afhimclothing?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">AfhimClothing</a>
+        </div>
+    </div>
+</div>
+    </body>
+    <footer>
+        <p>&copy; Copyright 2024. All Rights Reserved</p>
+    <section>   <nav>
+                    <a href="index.html" class="home"><i class='bx bx-arrow-back'></i></a>
+            </nav> </section>
+    </footer>
+
+    <!-- Logout Modal -->
+    <div id="logoutModal" class="modal">
+        <div class="modal-content">
+            <p>Are you sure you want to logout?</p>
+            <button class="modal-btn" id="confirmLogoutBtn">Logout</button>
+            <button class="modal-btn cancel-btn" id="cancelLogoutBtn">Cancel</button>
+        </div>
+    </div>
+    <script>
+        // Logout function
+        function logout() {
+            // Here you can add code to clear session data or perform other logout-related tasks
+            // For now, let's redirect to the login page
+            window.location.href = "login.html";
+        }
+
+        // Show modal when logout button is clicked
+        document.getElementById("logoutBtn").addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            document.getElementById("logoutModal").style.display = "block";
+        });
+
+        // Close modal and logout when confirm logout button is clicked
+        document.getElementById("confirmLogoutBtn").addEventListener("click", function(event) {
+            event.preventDefault();
+            logout();
+        });
+
+        // Close modal when cancel logout button is clicked
+        document.getElementById("cancelLogoutBtn").addEventListener("click", function(event) {
+            event.preventDefault();
+            document.getElementById("logoutModal").style.display = "none";
+        });
+
+        // Close modal when clicking outside of modal
+        window.onclick = function(event) {
+            var modal = document.getElementById("logoutModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    </html>

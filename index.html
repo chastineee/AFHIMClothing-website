@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/3.jpg" type="img/x-icon">
+    <title>Login and Sign-up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-position: center;
+            background-size:cover;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: transparent;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        h2 {
+            color: black;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            color: white;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            color: #555;
+            cursor: pointer;
+        }
+        .already-have-account a {
+            color: #3498db;
+            text-decoration: none;
+        }
+         .already-have-account {
+            margin-top: 10px;
+            text-align: center;
+            color: #555;
+        }
+
+        .already-have-account a {
+            color: white;
+            text-decoration: none;
+        }
+        
+.already-have-account {
+    color: black; /* Replace #ff0000 with the desired color code */
+}
+p{
+    color: teal;
+}
+
+
+    </style>
+</head>
+<body background="./images/bg cover.jpg">
+
+<!-- Login Popup -->
+<div id="loginPopup" class="popup">
+    <div class="content">
+        <span class="close" onclick="closePopup('loginPopup')">&times;</span>
+        <h2>Login</h2>
+        <form id="loginForm">
+
+           <div class="frm-hldr">
+                <label for="newEmail">
+                    <i class="far fa-envelope"></i> <!-- Font Awesome email icon -->
+                    Email:
+                </label>
+                <input type="email" id="newEmail" name="newEmail" required placeholder="Type Email here...">
+            </div>
+
+            <div class="frm-hldr">
+                <label for="username">
+                    <i class="fas fa-user"></i> <!-- Font Awesome user icon -->
+                    Username:
+                </label>
+                <input type="text" id="username" name="username" required placeholder="Type Username here...">
+            </div>
+
+            <div class="frm-hldr">
+                <label for="password">
+                    <i class="fas fa-lock"></i> <!-- Font Awesome lock icon -->
+                    Password:
+                </label>
+                <input type="password" id="password" name="password" required placeholder="Type Password here...">
+            </div>
+
+            <input type="submit" value="Login">
+        </form>
+       <div class="already-have-account">
+            <p>Don't have an account? <a href="#" onclick="closePopup('loginPopup'); openPopup('signupPopup')">Sign up</a></p>
+        </div>
+    </div>
+</div>
+	
+<!-- Signup Popup -->
+<div id="signupPopup" class="popup">
+    <div class="content">
+        <span class="close" onclick="closePopup('signupPopup')">&times;</span>
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+
+            <label for="newEmail"> <i class="far fa-envelope"></i> Email:</label>
+            <input type="email" id="newEmail" name="newEmail" required placeholder="Type Email here...">
+
+            <label for="newUsername"> <i class="fas fa-user"></i>New Username:</label>
+            <input type="text" id="newUsername" name="newUsername" required placeholder="Type Username here...">
+
+            <label for="newPassword"> <i class="fas fa-lock"></i>New Password:</label>
+            <input type="password" id="newPassword" name="newPassword" required placeholder="Type Password here...">
+
+             <label for="verifyPassword"><i class="fas fa-lock"></i> Verify Password:</label>
+            <input type="password" id="verifyPassword" name="verifyPassword" required placeholder="Re-enter Password...">
+
+            <input type="submit" value="Sign Up">
+        </form>
+        <div class="already-have-account">
+            <p>Already have an account? <a href="#" onclick="closePopup('signupPopup'); openPopup('loginPopup')">Login</a></p>
+        </div>
+    </div>
+</div>
+<!-- ... Existing HTML content ... -->
+<script>
+    // Function to open a popup
+    function openPopup(popupId) {
+        document.getElementById(popupId).style.display = 'block';
+    }
+
+    // Function to close a popup
+    function closePopup(popupId) {
+        document.getElementById(popupId).style.display = 'none';
+    }
+
+    // Event listener for the login form submission
+   
+ document.getElementById('loginForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // Validate login
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Assume you have some backend logic to validate credentials
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const user = users.find(u => u.username === username && u.password === password);
+
+        if (user) {
+            alert('Login successful!');
+            window.location.href = 'homepage.html';
+        } else {
+            alert('Invalid username or password');
+        }
+    });
+
+    // Event listener for the signup form submission
+    document.getElementById('signupForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // Perform signup logic
+        const newUsername = document.getElementById('newUsername').value;
+        const newPassword = document.getElementById('newPassword').value;
+        const verifyPassword = document.getElementById('verifyPassword').value;
+
+         // Check if passwords match
+    if (newPassword !== verifyPassword) {
+        alert('Passwords do not match. Please re-enter.');
+        return;
+
+    }
+
+        // Assuming you have some backend logic to store user data
+        // For simplicity, using localStorage here. Replace this with your actual backend logic.
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        users.push({ username: newUsername, password: newPassword });
+        localStorage.setItem('users', JSON.stringify(users));
+
+        alert('Signup successful!');
+
+        // Automatically log in the newly created account
+        document.getElementById('username').value = newUsername;
+        document.getElementById('password').value = newPassword;
+        document.getElementById('loginForm').submit();
+
+        closePopup('signupPopup'); // Close the signup popup
+    });
+
+    // Event listener for opening the login popup on page load
+    document.addEventListener('DOMContentLoaded', function () {
+        openPopup('loginPopup');
+    });
+</script>
+
+</body>
+</html>

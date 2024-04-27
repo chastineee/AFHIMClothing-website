@@ -1,0 +1,110 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFHIM CLOTHING</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="shortcut icon" href="img/3.jpg" type="img/x-icon">
+</head>
+<style type="text/css">
+.img{
+    margin-left: 50px;
+}
+
+</style>
+<body>
+   <section>
+     <header>
+        <nav>
+            <div id="logo-wrapper">
+                <img class="logo" src="img/2.jpg" alt="logo"/>
+                <span>AFHIM CLOTHING</span>
+            </div>
+            <ul class="links">
+            <li><a  href="index.html">Home</a></li>
+            <li><a class="active" href="product.html">Product</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a  href="contact.html">Contact</a></li>
+        </nav>
+    </header>
+    <div class="slideshow-container" align="center">
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 10</div>
+    <img src="img/7.jpg" style="width:30%">
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 10</div>
+    <img src="img/8.jpg" style="width:30%">
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 10</div>
+    <img src="img/9.jpg" style="width:30%">
+  </div>
+
+     <div class="mySlides fade">
+    <div class="numbertext">4 / 10</div>
+    <img src="img/24.jpg" style="width:30%">
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">5 / 10</div>
+    <img src="img/15.jpg" style="width:30%">
+  </div>
+
+<div class="mySlides fade">
+    <div class="numbertext">6 / 10</div>
+    <img src="img/19.jpg" style="width:30%">
+  </div>
+ 
+ <div class="mySlides fade">
+    <div class="numbertext">7 / 10</div>
+    <img src="img/20.jpg" style="width:30%">
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">8 / 10</div>
+    <img src="img/21.jpg" style="width:30%">
+  </div>
+   
+   <div class="mySlides fade">
+    <div class="numbertext">9 / 10</div>
+    <img src="img/22.jpg" style="width:30%">
+  </div>
+
+   <div class="mySlides fade">
+    <div class="numbertext">10 / 10</div>
+    <img src="img/23.jpg" style="width:30%">
+  </div>
+
+</div>
+<br>
+
+
+    <footer>
+        <div class="left">
+        <p>&copy; Copyright 2024. Alright Reserved</p>
+        <div class="right"> 
+    </footer>
+   </section>
+   <script type="text/javascript">
+       let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 2000);
+}
+   </script>
+</body>
+</html

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/3.jpg" type="img/x-icon">
+    <title>Men</title>
+    <link rel="stylesheet" type="text/css" href="css/style2.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <style>
+        /* Add your CSS styles here */
+        body {
+            background: url('./images/background3.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            position: relative; /* Add this to make sure the nav button is positioned relative to the body */
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin: 0;
+            color: white;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        nav {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            text-align: center;
+            position: absolute;
+            bottom: 0; /* Position the nav at the bottom */
+            right: 0; /* Position the nav at the right */
+        }
+        nav, a {
+            background-color: transparent;
+
+
+        }
+
+        .home {
+            background-color: black;
+            font-weight: bold;
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        p {
+            color: white;
+            margin-top: 10px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            h1 {
+                font-size: 20px;
+            }
+
+            .logo {
+                width: 40px;
+                height: 40px;
+            }
+
+            .home {
+                font-size: 16px;
+                width: 40px;
+                height: 25px;
+                line-height: 25px;
+                padding: 3px 8px;
+            }
+
+            .image-container {
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="logo-wrapper">
+            <h1><img class="logo" src="img/2.jpg" alt="logo"/>AFHIM CLOTHING</h1>
+        </div>
+    </header>
+    <nav>
+        <a href="homepage.html" class="home"><i class='bx bx-arrow-back'></i></a>
+    </nav>
+
+    <div class="image-container">
+        <a href="short.html">
+            <img src="./images/5.2.jpg" alt="short">
+        </a>
+        <p>Anime Shorts</p>
+    </div>
+
+    <div class="image-container">
+        <a href="long-sleeve.html">
+            <img src="./images/4.4.jpg" alt="long-sleeve">
+        </a>
+        <p>Riding Jersey</p>
+    </div>
+
+    <div class="image-container">
+        <a href="t-shirt.html">
+            <img src="./images/2.7.jpg" alt="t-shirt">
+        </a>
+        <p>Customize Shirts</p>
+    </div>
+
+    <div class="image-container">
+        <a href="jersey.html">
+            <img src="./images/3.12.jpg" alt="jersey">
+        </a>
+        <p>Customize Jersey</p>
+    </div>
+
+    <div class="image-container">
+        <a href="polo-shirt.html">
+            <img src="./images/1.1.jpg" alt="polo-shirt">
+        </a>
+        <p>Unisex Polo-Shirt</p>
+    </div>
+</body>
+</html>

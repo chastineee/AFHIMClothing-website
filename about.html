@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFHIM CLOTHING</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="imG/3.jpg" type="img/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<style type="text/css">
+  h1{
+        font-size: 35px;
+        font-family: deltaboard;
+    }
+       .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 20% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 700px;
+        height: 120px;
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    .modal-content p {
+        margin-bottom: 20px;
+    }
+
+    .modal-btn {
+        padding: 10px;
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        height: 50px;
+        width: 100px;
+        margin-right: 80px;
+    }
+    .modal-btn:hover {
+     background-color: maroon;
+    }
+    .modal-btn.cancel-btn {
+        background-color: #ccc;
+    }
+        .modal-btn.cancel-btn:hover {
+        background-color: darkgray;
+    }
+    footer{
+        align-content: center;
+        text-align: center;
+    }
+    .container i {
+            display: flex;
+            align-items: center; /* Align items vertically in the center */
+            justify-content: flex-start; /* Align items to the left */
+            margin-left: -5px; /* Add some left margin for spacing */
+        }
+
+        .container .bx-phone {
+            font-size: 5.8em; /* Adjust the size as needed */
+            margin-right: 30px; /* Add some right margin for spacing */
+             margin-left: 150px;
+        }
+</style>
+<body>
+   <section>
+     <header>
+        <nav>
+            <div id="logo-wrapper">
+                <img class="logo" src="./img/2.jpg" alt="logo"/>
+                <span>AFHIM CLOTHING</span>
+            </div>
+            <ul class="links">
+            <li><a  href="homepage.html"><i class='bx bxs-home'></i>Home</a></li>
+            <li><a href="product.html"><i class='bx bxs-package'></i>Product</a></li>
+            <li><a class="active" href="about.html"><i class='bx bxs-info-circle'></i>About</a></li>
+            <li><a href="contact.html"><i class='bx bxs-contact'></i>Contact</a></li>
+            <li><a href="FAQ.html">FAQ</a></li>
+            <li><a href="location.html"><i class='bx bx-current-location'></i>Location</a></li>
+            <li><a id="logoutBtn" href="#"><i class='bx bxs-log-out'></i>Logout</a></li>
+        </nav>
+    </header>
+    <div align="center">
+        <h1>AFHIM clothing started in 2017, born from the small dream of an individual that is currently growing more and more. From a small machine and printer used to make face masks during the pandemmic, an idea was conceived to create and venture into clothing production. Mr. Isaiah James Labay's preservance was recognized by people who also started from small dreams. In 2022, they were blessed by the Lord, all the equipment was upgraded, and they established wide connections in many places to gain mumerous customers. Currently, the have the most advanced and fastest printer in all of Mindoro, the stongest production when it comes to making full sublimated clothing, and they can supply to different places not only in Mindoro but also reach other countries. Along with the company's progress, they continue to dream of bigger and more productive services, high-quality clothing, and continue to provide services that only offer clothing but also showcase the quality of Filipino craftmanship.
+    </h1>
+    </div>
+    <div id="content-wrapper"></div>
+    <footer>
+        <div class="left">
+        <p>&copy; Copyright 2024. Allright Reserved</p>
+        <div class="right">
+    </footer>
+   </section>
+   <div id="logoutModal" class="modal">
+    <div class="modal-content">
+        <p>Are you sure you want to logout?</p>
+        <button class="modal-btn" id="confirmLogoutBtn">Logout</button>
+        <button class="modal-btn cancel-btn" id="cancelLogoutBtn">Cancel</button>
+    </div>
+</div>
+
+<script>
+    // Logout function
+    function logout() {
+        // Here you can add code to clear session data or perform other logout-related tasks
+        // For now, let's redirect to the login page
+        window.location.href = "login.html";
+    }
+
+    // Show modal when logout button is clicked
+    document.getElementById("logoutBtn").addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent default link behavior
+        document.getElementById("logoutModal").style.display = "block";
+    });
+
+    // Close modal and logout when confirm logout button is clicked
+    document.getElementById("confirmLogoutBtn").addEventListener("click", function(event) {
+        event.preventDefault();
+        logout();
+    });
+
+    // Close modal when cancel logout button is clicked
+    document.getElementById("cancelLogoutBtn").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.getElementById("logoutModal").style.display = "none";
+    });
+
+    // Close modal when clicking outside of modal
+    window.onclick = function(event) {
+        var modal = document.getElementById("logoutModal");
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>

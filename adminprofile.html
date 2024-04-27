@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .profile-info {
+            margin-bottom: 20px;
+            padding: 0 20px;
+        }
+        .profile-info label {
+            font-weight: bold;
+        }
+        .profile-info p {
+            margin: 5px 0;
+        }
+        .btn-container {
+            text-align: center;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-right: 10px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        /* Popup Styles */
+        .popup-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+        .popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 100%;
+        }
+        .btn-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            color: #555;
+            text-decoration: none;
+        }
+        #popup-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #popup-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+        #popup-info label {
+            font-weight: bold;
+        }
+        #popup-info div {
+            margin-bottom: 10px;
+        }
+        .profile-edit-input {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        #save-cancel-buttons {
+            text-align: center;
+        }
+        #preview-image {
+            max-width: 100px;
+            max-height: 100px;
+            display: none;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Profile information -->
+        <h1>Admin Profile</h1>
+        <div class="profile-info">
+            <!-- Your profile editing fields here -->
+            <label for="name">Name:</label>
+            <p id="name">Juan Dela Cruz(e.g)</p>
+            <label for="username">Username:</label>
+            <p id="username">admin_user</p>
+            <label for="password">Password:</label>
+            <p id="password">12345***</p>
+            <label for="email">Email:</label>
+            <p id="email">admin@example.com</p>
+        </div>
+        <div class="btn-container">
+            <button class="btn" onclick="editProfile()">Edit Profile</button>
+            <button class="btn" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <!-- Popup Container -->
+    <div class="popup-container" id="popup-container">
+        <div class="popup-content">
+            <a href="#" class="btn-close" onclick="closePopup()">&#x2715;</a>
+            <div id="popup-info">
+                <input type="file" id="profile-image" accept="image/*">
+                <img id="preview-image" src="#" alt="Preview Image">
+                <!-- Your profile editing fields here -->
+                <input type="text" id="edited-name" class="profile-edit-input" placeholder="Enter Name">
+                <input type="text" id="edited-username" class="profile-edit-input" placeholder="Enter Username">
+                <input type="password" id="edited-password" class="profile-edit-input" placeholder="Enter Password">
+                <input type="email" id="edited-email" class="profile-edit-input" placeholder="Enter Email">
+            </div>
+            <div id="save-cancel-buttons">
+                <!-- Save and Cancel Buttons -->
+                <button class="btn" onclick="saveProfile()">Save</button>
+                <button class="btn" onclick="cancelEdit()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function editProfile() {
+            // Show the profile edit popup
+            document.getElementById('popup-container').style.display = 'block';
+        }
+
+        function logout() {
+            // Perform logout operation, e.g., clearing session
+            alert("Logged out successfully!");
+            // Redirect to the login page
+            window.location.href = "admin.html";
+        }
+
+        function closePopup() {
+            // Close the pop-up
+            document.getElementById('popup-container').style.display = 'none';
+        }
+
+        function saveProfile() {
+            // Update the admin profile with edited information
+            var editedName = document.getElementById('edited-name').value;
+            var editedUsername = document.getElementById('edited-username').value;
+            var editedPassword = document.getElementById('edited-password').value;
+            var editedEmail = document.getElementById('edited-email').value;
+            var profileImage = document.getElementById('preview-image').src;
+
+            // Update profile fields
+            document.getElementById('username').textContent = editedUsername;
+            document.getElementById('email').textContent = editedEmail;
+            document.getElementById('name').textContent = editedName;
+            document.getElementById('password').textContent = editedPassword;
+            // Update profile image
+            document.getElementById('profile-img').src = profileImage;
+
+            // Close the popup after saving
+            closePopup();
+        }
+
+        function cancelEdit() {
+            // Cancel the profile editing
+            // You can implement any necessary cleanup logic here
+            closePopup(); // Close the popup after canceling
+        }
+
+        // Display uploaded image preview
+        document.getElementById('profile-image').addEventListener('change', function(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var image = document.getElementById('preview-image');
+                image.src = reader.result;
+                image.style.display = 'block';
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        });
+    </script>
+</body>
+</html>

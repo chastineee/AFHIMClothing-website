@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+</head>
+<style>
+    #admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#admin-table th, #admin-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#admin-table th {
+    background-color: #f2f2f2; /* Light gray header background */
+}
+
+</style>
+<body>
+    <h2>Orders:</h2>
+    <table id="admin-table">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Payment Method</th>
+            <th>Total Amount</th>
+            <th>Items</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Order details will be dynamically inserted here -->
+    </tbody>
+</table>
+
+    <script>
+        // Function to retrieve order details from local storage
+function getOrderDetails() {
+    // Retrieve order details from local storage
+    const orders = JSON.parse(localStorage.getItem('orders')) || [];
+    return orders;
+}
+
+// Function to render order details on the admin page
+function renderOrderDetails() {
+    const orders = getOrderDetails();
+    const adminTable = document.getElementById('admin-table');
+
+    // Clear existing rows in the table body
+    adminTable.querySelector('tbody').innerHTML = '';
+
+    // Render each order as a row in the table
+    orders.forEach((order, index) => {
+        const row = adminTable.insertRow();
+        row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${order.userInfo.name}</td>
+            <td>${order.userInfo.address}</td>
+            <td>${order.userInfo.phone}</td>
+            <td>${order.paymentMethod}</td>
+            <td>${order.total.toFixed(2)}</td>
+            <td>${renderCartItems(order.cart)}</td>
+        `;
+    });
+}
+
+// Function to render cart items as a string
+function renderCartItems(cart) {
+    return cart.map(item => `${item.item} (${item.quantity})`).join('<br>');
+}
+
+// Call renderOrderDetails function when the admin page loads
+window.onload = function() {
+    renderOrderDetails();
+};
+
+
+    </script>
+</body>
+</html>
